@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import counter from "./counter-reducer";
+import todos from "./todo-reducer";
 
-export default combineReducers({ counter });
+export default combineReducers({ todos });

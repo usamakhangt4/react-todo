@@ -13,6 +13,8 @@
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
+    "remote-redux-devtools": "^0.5.16",
+    "sass": "^1.34.0",
     "thunk": "^0.0.1",
     "typescript": "^4.3.2",
     "web-vitals": "^1.0.1"
@@ -40,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/remote-redux-devtools": "^0.5.4"
   }
 }
