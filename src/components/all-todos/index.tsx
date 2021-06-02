@@ -8,26 +8,18 @@ export default function AllTodos() {
     (state) => state.todos
   );
 
-  const checkboxClicked = (todoId: number) => {
-    alert(todoId);
-  };
   return (
     <main>
       <AddTodo />
-      {todoList?.map((todo) => (
-        <article key={todo.id}>
-          <input
-            type="checkbox"
-            name=""
-            id=""
-            checked={todo.isCompleted}
-            onChange={(e) => console.log(e)}
+      <section className="todo-list-wrapper">
+        {todoList?.map((todo) => (
+          <Todo
+            id={todo.id}
+            isCompleted={todo.isCompleted}
+            title={todo.todo_title}
           />
-          <h2>{todo.todo_title}</h2>
-          <p>{todo.todo_description}</p>
-        </article>
-      ))}
-      <Todo />
+        ))}
+      </section>
     </main>
   );
 }

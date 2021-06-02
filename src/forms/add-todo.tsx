@@ -9,33 +9,33 @@ export default function AddTodo() {
     (state) => state.todos
   );
 
-  const [todo, setTodo] = useState({
-    todo_title: "",
-    todo_description: "",
-  });
+  const [todo, setTodo] = useState("");
 
   const onSubmit = useCallback(() => {
     dispatch(
       addTodo({
         id: todoList.length + 1,
         isCompleted: false,
-        todo_title: todo.todo_title,
-        todo_description: todo.todo_description,
+        todo_title: todo,
       })
     );
-  }, [dispatch, todo.todo_description, todo.todo_title, todoList.length]);
+    setTodo("");
+  }, [dispatch, todo, todoList.length]);
 
   return (
-    <div>
+    <section className="add-todo-form main-container">
       <input
         type="text"
-        onChange={(e) => setTodo({ ...todo, todo_title: e.target.value })}
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        className="todo-title"
       />
-      <input
-        type="text"
-        onChange={(e) => setTodo({ ...todo, todo_description: e.target.value })}
-      />
-      <button onClick={() => onSubmit()}>Add</button>
-    </div>
+      <button
+        onClick={() => onSubmit()}
+        className={`button ${todo.trim().length <= 0 ? "disabled" : null}`}>
+        <span className="icon">+</span>
+        <span>Add</span>
+      </button>
+    </section>
   );
 }

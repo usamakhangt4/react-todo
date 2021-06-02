@@ -1,26 +1,7 @@
 import { TodosActions, TodosState } from "types";
 
 const initialState: TodosState = {
-  todoList: [
-    {
-      id: 1,
-      isCompleted: false,
-      todo_title: "todo1",
-      todo_description: "description",
-    },
-    {
-      id: 2,
-      isCompleted: true,
-      todo_title: "todo2",
-      todo_description: "description",
-    },
-    {
-      id: 3,
-      isCompleted: false,
-      todo_title: "todo3",
-      todo_description: "description",
-    },
-  ],
+  todoList: [],
 };
 
 export default function todoReducer(

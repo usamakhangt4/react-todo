@@ -1,4 +1,3 @@
-import { Dispatch } from "react";
 import { GetState, Todo, TodosActions, TodosState } from "types";
 
 export function setTodo(payload: TodosState["todoList"]): TodosActions {
@@ -14,5 +13,23 @@ export function addTodo(todo: Todo) {
       todos: { todoList = [] },
     } = getState();
     dispatch(setTodo([todo, ...todoList]));
+  };
+}
+
+export function updateTodo(id: number) {
+  return (dispatch: any, getState: GetState) => {
+    const {
+      todos: { todoList = [] },
+    } = getState();
+
+    const updatedList = todoList.map((todo) => {
+      if (todo.id === id) {
+        todo.isCompleted = !todo.isCompleted;
+      }
+      return todo;
+    });
+
+    dispatch(setTodo(updatedList));
+    console.log(getState());
   };
 }

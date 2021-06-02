@@ -6,7 +6,6 @@ export type Todo = {
   id: number;
   isCompleted: boolean;
   todo_title: string;
-  todo_description: string;
 };
 export interface TodosState {
   todoList?: Todo[];

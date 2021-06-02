@@ -1,0 +1,21 @@
+.todo-card {
+  background-color: rgba(white, 0.3);
+  max-width: 80%;
+  border-radius: 12px;
+  margin: auto;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+  }
+}
