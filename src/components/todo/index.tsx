@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { updateTodo } from "store/actions";
+import { deleteTodo, updateTodo } from "store/actions";
 
 interface ComponentProps {
   id: number;
@@ -21,7 +21,12 @@ export default function Todo(props: ComponentProps) {
         onChange={() => dispatch(updateTodo(id))}
         className="chekbox"
       />
-      <h2 className="todo-title">{title}</h2>
+      <h2 className={`todo-title ${isCompleted && "completed"}`}>{title}</h2>
+      <button
+        className="button delete-todo"
+        onClick={() => dispatch(deleteTodo(id))}>
+        Delete
+      </button>
     </article>
   );
 }

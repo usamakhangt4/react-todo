@@ -30,6 +30,16 @@ export function updateTodo(id: number) {
     });
 
     dispatch(setTodo(updatedList));
-    console.log(getState());
+  };
+}
+
+export function deleteTodo(id: number) {
+  return (dispatch: any, getState: GetState) => {
+    const {
+      todos: { todoList = [] },
+    } = getState();
+
+    const updatedList = todoList.filter((todo) => todo.id !== id);
+    dispatch(setTodo(updatedList));
   };
 }

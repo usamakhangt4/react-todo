@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { addTodo } from "store/actions";
-import { Todo } from "types";
+
 export default function AddTodo() {
   const dispatch = useDispatch();
   const { todoList = [] } = useSelector<AppState, AppState["todos"]>(
@@ -29,6 +29,7 @@ export default function AddTodo() {
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
         className="todo-title"
+        placeholder="Enter desired task..."
       />
       <button
         onClick={() => onSubmit()}
