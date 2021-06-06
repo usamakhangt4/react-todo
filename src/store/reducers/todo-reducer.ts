@@ -11,6 +11,8 @@ export default function todoReducer(
   switch (action.type) {
     case "SET_Todo":
       return { ...state, todoList: action.payload };
+    case "UPDATE_INTIAL_TODOLIST":
+      return { ...state, todoList: action.payload };
 
     default:
       return state;

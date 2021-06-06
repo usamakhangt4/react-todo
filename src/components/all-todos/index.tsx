@@ -11,7 +11,7 @@ export default function AllTodos() {
   return (
     <main>
       <AddTodo />
-      <section className="todo-list-wrapper">
+      <section className="todo-list-wrapper main-container">
         {todoList?.map((todo) => (
           <Todo
             id={todo.id}

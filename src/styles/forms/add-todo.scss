@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  padding: 50px 0;
 
   .todo-title {
     height: 38px;
@@ -11,7 +12,6 @@
     outline: none;
     padding: 0 10px;
     font-size: 16px;
-    flex: 1;
   }
 
   .button {

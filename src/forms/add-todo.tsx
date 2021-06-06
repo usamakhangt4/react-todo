@@ -1,26 +1,36 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useCookies } from "react-cookie";
 import { AppState } from "store";
-import { addTodo } from "store/actions";
+import {
+  addTodo,
+  setInitialTodoList,
+  updateInitialTodoList,
+} from "store/actions";
 
 export default function AddTodo() {
+  const [cookies, setCookies] = useCookies();
+  const { todoCookies = [] } = cookies;
   const dispatch = useDispatch();
+  const [todo, setTodo] = useState("");
   const { todoList = [] } = useSelector<AppState, AppState["todos"]>(
     (state) => state.todos
   );
 
-  const [todo, setTodo] = useState("");
-
   const onSubmit = useCallback(() => {
-    dispatch(
-      addTodo({
-        id: todoList.length + 1,
-        isCompleted: false,
-        todo_title: todo,
-      })
-    );
+    const newTodo = {
+      id: todoList.length + 1,
+      isCompleted: false,
+      todo_title: todo,
+    };
+    dispatch(addTodo(newTodo));
+    setCookies("todoCookies", [newTodo, ...todoList]);
     setTodo("");
-  }, [dispatch, todo, todoList.length]);
+  }, [dispatch, setCookies, todo, todoList]);
+
+  useEffect(() => {
+    dispatch(updateInitialTodoList(todoCookies));
+  }, []);
 
   return (
     <section className="add-todo-form main-container">

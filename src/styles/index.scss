@@ -1,4 +1,5 @@
 @import "./components/header.scss";
+@import "./components/footer.scss";
 @import "./components/all-todo.scss";
 @import "./components/todo.scss";
 @import "./forms/add-todo.scss";
@@ -13,6 +14,7 @@ body {
 
   background-color: rgb(120, 76, 170);
   color: white;
+  // min-height: 90vh;
 }
 
 *,
@@ -21,7 +23,11 @@ body {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .main-container {
   width: 80vw;
-  margin: 50px auto;
+  margin: auto;
 }

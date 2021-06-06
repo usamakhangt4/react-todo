@@ -7,6 +7,21 @@ export function setTodo(payload: TodosState["todoList"]): TodosActions {
   };
 }
 
+export function setInitialTodoList(
+  payload: TodosState["todoList"]
+): TodosActions {
+  return {
+    type: "UPDATE_INTIAL_TODOLIST",
+    payload,
+  };
+}
+
+export function updateInitialTodoList(initialTodoList: Todo[]) {
+  return (dispatch: any, getState: GetState) => {
+    dispatch(setTodo(initialTodoList));
+  };
+}
+
 export function addTodo(todo: Todo) {
   return (dispatch: any, getState: GetState) => {
     const {

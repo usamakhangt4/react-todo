@@ -11,7 +11,9 @@ export interface TodosState {
   todoList?: Todo[];
 }
 
-export type TodosActions = {
-  type: "SET_Todo";
-  payload: TodosState["todoList"];
-};
+export type TodosActions =
+  | { type: "SET_Todo"; payload: TodosState["todoList"] }
+  | {
+      type: "UPDATE_INTIAL_TODOLIST";
+      payload: TodosState["todoList"];
+    };
